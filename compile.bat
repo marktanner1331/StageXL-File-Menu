@@ -1,0 +1,1 @@
+dart2js -o web/main.dart.js web/main.dart
