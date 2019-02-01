@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
-import 'dart:math';
-import './FileMenu.dart';
+import './MainMenu.dart';
 
-FileMenu fileMenu;
+MainMenu mainMenu;
 Stage stage;
 
 Future<Null> main() async {
@@ -18,29 +17,52 @@ Future<Null> main() async {
   var renderLoop = RenderLoop();
   renderLoop.addStage(stage);
 
-  fileMenu = FileMenu();
-  FileButton file = fileMenu.addMenuItem("File");
-  file.addMenuItem("New");
+  mainMenu = MainMenu();
+
+  //set some styles
+  mainMenu
+    ..fileMenuBackColor = 0xff303030
+    ..menuButtonBackColor = 0xff303030
+    ..menuButtonHighlightColor = 0xff505050
+    ..menuButtonTextColor = 0xffCCCCCC
+    ..menuButtonTextSize = 15
+    ..menuItemBackColor = 0xff262626
+    ..menuItemHighlightColor = 0xff505050
+    ..menuItemTextColor = 0xffffffff
+    ..menuItemTextSize = 15
+    ..seperatorColor = 0xffCCCCCC;
+
+  //add a menu item
+  MenuButton file = mainMenu.addMenuItem("File");
+
+  file.addMenuItem("New").onMouseClick.listen((Event e) {
+    print("New was clicked");
+  });
+
   file.addMenuItem("Open");
+
+  //add a seperator
   file.addSeperator();
 
-  file.addMenuItem("Open Recent")
-  ..addMenuItem("File 1")
-  ..addMenuItem("File 2");
+  //add sub menu items
+  file.addMenuItem("Open Recent")..addMenuItem("File 1")..addMenuItem("File 2");
 
-  file.addCheckboxMenuItem("cool", true);
+  //add a checkbox and listen for clicks
+  CheckboxMenuItem cb = file.addCheckboxMenuItem("cool", true);
+  cb.onIsCheckedChanged.listen((Event e) {
+    print(cb.isChecked);
+  });
 
-  fileMenu.addMenuItem("Edit")
-  ..addMenuItem("Cut")
-  ..addMenuItem("Copy");
-  stage.addChild(fileMenu);
+  //add another menu item
+  mainMenu.addMenuItem("Edit")..addMenuItem("Cut")..addMenuItem("Copy");
+  stage.addChild(mainMenu);
 
   stage.onResize.listen(onResize);
   onResize(null);
 }
 
 void onResize(Event e) {
-  fileMenu.x = 0;
-  fileMenu.y = 0;
-  fileMenu.width = stage.stageWidth;
+  mainMenu.x = 0;
+  mainMenu.y = 0;
+  mainMenu.width = stage.stageWidth;
 }
