@@ -4,6 +4,8 @@
 build/
 packages
 .packages
+.idea
+.vscode
 
 # or documentation files
 doc/
