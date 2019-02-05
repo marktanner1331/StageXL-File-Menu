@@ -5,6 +5,9 @@ build/
 packages
 .packages
 
+# or documentation files
+doc/
+
 # Or the files created by dart2js.
 *.dart.js
 *.js_
