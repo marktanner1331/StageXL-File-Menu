@@ -12,8 +12,7 @@ class SimpleMenuItem extends Sprite
   TextField _label;
   MenuItemGroup _parentGroup;
 
-  SimpleMenuItem(
-      MainMenuStyle style, MenuItemGroup parentGroup, String text) {
+  SimpleMenuItem(MainMenuStyle style, MenuItemGroup parentGroup, String text) {
     this.style = style;
     this.menuItems.style = style;
     this._parentGroup = parentGroup;

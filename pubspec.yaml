@@ -1,8 +1,9 @@
 name: stagexl_main_menu
-description: A simple StageXL web app.
-version: 1.0.0
+description: Main Menu is a package for StageXL which allows developers to easily add a main menu to their project.
+
+version: 1.0.1
 author: Mark Tanner <admin@64bitdragon.com>
-repository: https://github.com/marktanner1331/StageXL-Main-Menu
+homepage: https://github.com/marktanner1331/StageXL-Main-Menu
 
 environment:
   sdk: '>=2.1.0 <3.0.0'

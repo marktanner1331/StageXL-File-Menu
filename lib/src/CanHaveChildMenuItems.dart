@@ -12,7 +12,7 @@ mixin CanHaveChildMenuItems on HasMainMenuStyle {
   ///adds a menu item that can have child menu items
   MenuItem addMenuItem(String text) {
     SimpleMenuItem menuItem = SimpleMenuItem(style, menuItems, text);
-  
+
     menuItems.addMenuItem(menuItem);
     return menuItem;
   }

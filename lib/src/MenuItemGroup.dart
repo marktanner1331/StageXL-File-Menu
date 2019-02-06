@@ -14,7 +14,7 @@ class MenuItemGroup extends Sprite with HasMainMenuStyle {
   void relayout() {
     num deltaY = 7;
 
-    if (_menuItems.length > 0) {
+    if (_menuItems.isNotEmpty) {
       for (FullWidthMenuItem menuItem in _menuItems) {
         menuItem.relayout();
         menuItem.y = deltaY;

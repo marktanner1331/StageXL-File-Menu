@@ -93,7 +93,7 @@ class MainMenu extends DisplayObjectContainer with MainMenuStyle {
     menuItem.onMouseClick.listen(_onMenuItemClick);
     menuItem.onMouseOver.listen(_onMenuItemMouseOver);
 
-    if (_menuItems.length > 0) {
+    if (_menuItems.isNotEmpty) {
       DisplayObject lastItem = _menuItems.last;
       num right = lastItem.x + lastItem.width;
       menuItem.x = right;
@@ -127,7 +127,7 @@ class MainMenu extends DisplayObjectContainer with MainMenuStyle {
   void _redrawBG() {
     _background.graphics.clear();
 
-    if (_menuItems.length > 0) {
+    if (_menuItems.isNotEmpty) {
       num height = _menuItems.map((x) => x.height).reduce(max);
 
       _background.graphics.rect(0, 0, 100, height);

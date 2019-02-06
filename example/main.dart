@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:html' as html;
 import 'package:stagexl/stagexl.dart';
 
-import 'package:stagexl_main_menu/MainMenu.dart';
+import 'package:stagexl_main_menu/stagexl_main_menu.dart';
 
 MainMenu mainMenu;
 Stage stage;
